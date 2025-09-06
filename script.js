@@ -67,3 +67,19 @@ function nextSlide() {
 
 setInterval(nextSlide, 3000); // Change every 3s
 showSlide(currentIndex);
+// Animate Skills on Scroll
+function animateSkills() {
+  const skills = document.querySelectorAll(".skill-card");
+  const triggerBottom = window.innerHeight * 0.8;
+
+  skills.forEach(skill => {
+    const skillTop = skill.getBoundingClientRect().top;
+    if (skillTop < triggerBottom) {
+      skill.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", animateSkills);
+window.addEventListener("load", animateSkills);
+
